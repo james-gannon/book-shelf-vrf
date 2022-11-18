@@ -49,6 +49,14 @@ contract BookPortal {
          * Let me know what you learn in #general-chill-chat
          */
         emit NewBook(msg.sender, block.timestamp, _message);
+
+        uint256 prizeAmount = 0.0001 ether;
+        require(
+            prizeAmount <= address(this).balance,
+            "Insufficient funds in the contract."
+        );
+        (bool success, ) = (msg.sender).call{value: prizeAmount}("");
+        require(success, "Failed to withdraw money from contract");
     }
 
     /*
