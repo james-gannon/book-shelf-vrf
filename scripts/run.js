@@ -3,24 +3,65 @@ const main = async () => {
     const bookContractFactory = await hre.ethers.getContractFactory(
         "BookPortal"
     )
-    const bookContract = await bookContractFactory.deploy()
+    const bookContract = await bookContractFactory.deploy({
+        value: hre.ethers.utils.parseEther("0.1"),
+    })
     await bookContract.deployed()
     console.log(`Contract deployed to: ${bookContract.address}`)
     // console.log("Contract deployed by:", owner.address)
 
-    let bookCount
-    bookCount = await bookContract.getTotalQuills()
-    console.log(bookCount.toNumber())
+    /*
+     * Get contract balance.
+     */
 
-    let bookTxn = await bookContract.quill("A message!")
-    await bookTxn.wait() // wait for transaction to be mined
+    let contractBalance = await hre.ethers.provider.getBalance(
+        bookContract.address
+    )
+    console.log(
+        "Contract balance:",
+        hre.ethers.utils.formatEther(contractBalance)
+    )
 
-    const [_, randomPerson] = await hre.ethers.getSigners()
-    bookTxn = await bookContract.connect(randomPerson).quill("Another message!")
-    await bookTxn.wait() // wait for transaction to be mined
+    /*
+     * Send book
+     */
+
+    const bookTxn = await bookContract.quill("This is book #1")
+    await bookTxn.wait()
+
+    const bookTxn2 = await bookContract.quill("This is book #2")
+    await bookTxn2.wait()
+
+    // let bookTxn = await bookContract.quill('"A message!"')
+    // await bookTxn.wait() // wait for transaction to be mined
+
+    /*
+     * Get contract balance again
+     */
+
+    contractBalance = await hre.ethers.provider.getBalance(bookContract.address)
+    console.log(
+        "contractBalance: ",
+        hre.ethers.utils.formatEther(contractBalance)
+    )
+
+    /* let bookCount
+     * bookCount = await bookContract.getTotalQuills()
+     * console.log(bookCount.toNumber())
+     */
+
+    /* const [_, randomPerson] = await hre.ethers.getSigners()
+     * bookTxn = await bookContract.connect(randomPerson).quill("Another message!")
+     * await bookTxn.wait() // wait for transaction to be mined
+     */
 
     let allBooks = await bookContract.getAllBooks()
-    console.log(allBooks)
+    console.log("Books currently on the shelf:", allBooks)
+
+    /*
+     * =======================================================================================
+     * =======================================================================================
+     */
 
     //await bookContract.getTotalQuills()
 
