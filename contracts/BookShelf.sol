@@ -126,10 +126,10 @@ contract BookPortal is VRFV2WrapperConsumerBase {
         }*/
     }
 
-    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords)
-        internal
-        override
-    {
+    function fulfillRandomWords(
+        uint256 requestId,
+        uint256[] memory randomWords
+    ) internal override {
         require(statuses[requestId].fees > 0, "Request not found");
 
         statuses[requestId].fulfilled = true;
@@ -155,11 +155,9 @@ contract BookPortal is VRFV2WrapperConsumerBase {
         emit fiftyFiftyResult(requestId, statuses[requestId].didWin);
     }
 
-    function getStatus(uint256 requestId)
-        public
-        view
-        returns (fiftyFiftyStatus memory)
-    {
+    function getStatus(
+        uint256 requestId
+    ) public view returns (fiftyFiftyStatus memory) {
         return statuses[requestId];
     }
 

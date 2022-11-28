@@ -1,10 +1,10 @@
+const { ethers } = require("hardhat")
+
 const main = async () => {
     // const [owner, randomPerson] = await hre.ethers.getSigners()
-    const bookContractFactory = await hre.ethers.getContractFactory(
-        "BookPortal"
-    )
+    const bookContractFactory = await ethers.getContractFactory("BookPortal")
     const bookContract = await bookContractFactory.deploy({
-        value: hre.ethers.utils.parseEther("0.1"),
+        value: ethers.utils.parseEther("0.1"),
     })
     await bookContract.deployed()
     console.log(`Contract deployed to: ${bookContract.address}`)
@@ -14,13 +14,8 @@ const main = async () => {
      * Get contract balance.
      */
 
-    let contractBalance = await hre.ethers.provider.getBalance(
-        bookContract.address
-    )
-    console.log(
-        "Contract balance:",
-        hre.ethers.utils.formatEther(contractBalance)
-    )
+    let contractBalance = await ethers.provider.getBalance(bookContract.address)
+    console.log("Contract balance:", ethers.utils.formatEther(contractBalance))
 
     /*
      * Send book
@@ -39,11 +34,8 @@ const main = async () => {
      * Get contract balance again
      */
 
-    contractBalance = await hre.ethers.provider.getBalance(bookContract.address)
-    console.log(
-        "contractBalance: ",
-        hre.ethers.utils.formatEther(contractBalance)
-    )
+    contractBalance = await ethers.provider.getBalance(bookContract.address)
+    console.log("contractBalance: ", ethers.utils.formatEther(contractBalance))
 
     /* let bookCount
      * bookCount = await bookContract.getTotalQuills()

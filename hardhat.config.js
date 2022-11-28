@@ -1,4 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox")
+require("@nomiclabs/hardhat-waffle")
+require("@nomiclabs/hardhat-ethers")
+require("@nomiclabs/hardhat-etherscan")
+
 // Import and configure dotenv
 require("dotenv").config()
 
@@ -20,7 +24,6 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
-const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY
 
 module.exports = {
     solidity: "0.8.17",
