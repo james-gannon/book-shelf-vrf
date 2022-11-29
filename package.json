@@ -1,4 +1,5 @@
 {
+    "homepage": "http://james-gannon.github.io/book-shelf-vrf",
     "name": "web3-profile-page",
     "version": "1.0.0",
     "main": "index.js",
@@ -17,6 +18,7 @@
         "@typechain/hardhat": "^6.1.2",
         "chai": "^4.3.7",
         "ethers": "^5.7.2",
+        "gh-pages": "^4.0.0",
         "hardhat": "^2.12.2",
         "hardhat-gas-reporter": "^1.0.8",
         "prettier": "2.7.1",
@@ -35,6 +37,8 @@
     },
     "scripts": {
         "start": "react-scripts start",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
