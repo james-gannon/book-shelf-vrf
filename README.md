@@ -1,28 +1,37 @@
 # BookShelf
 
-This project allows a user to connect their wallet (Metamask) and add their favorite book(s) to the BookShelf! All book recommendations are publicly recorded to the Ethereum blockchain, with a 50% chance to win 0.0001 ETH. The BookPortal smart contract utilizes Chailink VRF for the generation of all random numbers.
+This project allows a user to connect their wallet (Metamask) and add their favorite book(s) to the BookShelf! All book recommendations are publicly recorded to the Ethereum blockchain, with a 50% chance to win 0.0001 ETH. The BookShelf smart contract utilizes Chailink VRF for the generation of all random numbers.
 
-## Try running some of the following tasks:
+## Run the following to get started
+
+### Install and Setup
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+yarn install
 ```
 
-## Running React on Repl.it
+-   Make sure you have a Metamask wallet funded with Goerli ETH, and update the .env file with respective RPC and Etherscan endpoint APIs.
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+### Deploy Contract
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+```shell
+yarn hardhat run scripts/deploy.js --network goerli
+```
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+### Deploy Front-end
 
-### Getting Started
+For local host...
 
--   Hit run
--   Edit [App.jsx](#src/App.jsx) and watch it live update!
+```shell
+npm run start
+```
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the `.replit` file.
+### Fund deployed contract with test LINK
+
+Head to [Chainlink Faucet](https://faucets.chain.link/) to add Goerli testnet LINK to your wallet, and send to the address of the deployed contract! 5+ LINK should do for inital use.
+
+### Add a book!
+
+Finally! Connect your wallet to the web app's front-end, add a book, and view it on the blockchain. Your submission should automatically update to the front-end as well!
+
+Happy coding! 🥳

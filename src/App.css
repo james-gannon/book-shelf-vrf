@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: black;
+    color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navPadding {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    background-color: #000000;
+    outline-color: #fff;
+    outline-offset: 0px;
+    outline-style: none;
+    outline-width: 3px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav_container {
+    display: flex;
+    width: 100%;
+    max-width: 80rem;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: right;
 }
 
-.App-link {
-  color: #61dafb;
+.dataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    height: calc(100vh);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.bio {
+    text-align: center;
+    color: gray;
+    margin-top: 16px;
+}
+
+.bio2 {
+    text-align: center;
+    color: gray;
+    margin-top: 16px;
+}
+
+.connectWallet {
+    display: inline-block;
+    padding: 9px 15px;
+    background-color: #29ffc9;
+    color: #474747;
+    line-height: 1.5rem;
+    width: 10rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 16px;
+    padding: 8px;
+    border: 0;
+    border-radius: 3rem;
+    font-weight: 750;
+}
+
+.enterBook {
+    cursor: pointer;
+    margin-top: 16px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.nameField {
+    width: 99%;
+    height: 100%;
+}
+
+.bookButton {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 8px;
+    border: 0;
+    border-radius: 5px;
 }

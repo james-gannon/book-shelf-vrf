@@ -6,6 +6,7 @@
 # testing
 /coverage
 coverage.json
+rng.py
 
 # production
 /build

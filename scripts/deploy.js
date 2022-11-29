@@ -13,7 +13,7 @@ const main = async () => {
     })
     await bookContract.deployed()
 
-    console.log("BookPortal address: ", bookContract.address)
+    console.log("BookShelf address: ", bookContract.address)
 
     if (process.env.ETHERSCAN_API_KEY) {
         // Wait 3 block confirmations
