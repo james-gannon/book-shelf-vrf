@@ -2,6 +2,8 @@
 
 This project allows a user to connect their wallet (Metamask) and add their favorite book(s) to the BookShelf! All book recommendations are publicly recorded to the Ethereum blockchain, with a 50% chance to win 0.0001 ETH. The BookShelf smart contract utilizes Chailink VRF for the generation of all random numbers.
 
+- Live "try-it-out" demo: https://james-gannon.github.io/book-shelf-vrf/
+
 ## Run the following to get started
 
 ### Install and Setup
